@@ -37,28 +37,27 @@ function App() {
   }, [length, numberAllowed, characterAllowed, passwordGenerator])
 
   return (
-    <><div className='w-screen bg-red-500 h-screen'>
-      <div className="heading absolute bg-slate-800 w-1/2 h-52 top-48 left-96 rounded-3xl">
+    <div className=' bg-red-500 w-full h-screen'>
+      <div className="absolute bg-slate-800 w-1/2 m-auto top-1/2 py-8 left-96 rounded-3xl">
         <h1 className='text-5xl text-center text-white'>Password Generator</h1>
-        <div>
-          <input type="text" ref={passwordRef} value={password} className='w-96 h-12 ml-32 mt-6 rounded-xl text-center' placeholder='Password' />
+        <div className='text-center mt-4'>
+          <input type="text" ref={passwordRef} value={password} className='w-96 h-12 rounded-xl text-center' placeholder='Password' />
           <button onClick={copyPasswordToClipBoard} className='ml-4 h-12 bg-blue-900 text-white w-14 rounded-xl'>Copy</button>
         </div>
-        <div>
-          <input type="range" min={6} max={100} onChange={(e) => { setLength(e.target.value) }} className='cursor-pointer mt-4 ml-36' />
-          <label className='text-white ml-4'>Length : {length}</label>
-          <input type="checkbox" className='ml-4' defaultChecked={numberAllowed} onChange={(prev) => {
+        <div className='text-center space-x-2 text-white'>
+          <input type="range" min={6} max={100} onChange={(e) => { setLength(e.target.value) }} className='cursor-pointer mt-4' />
+          <label>Length : {length}</label>
+          <input type="checkbox" className='' defaultChecked={numberAllowed} onChange={(prev) => {
             setNumberAllowed((prev) => !prev)
           }} />
-          <label className='text-white ml-2'>Number</label>
-          <input type="checkbox" className='ml-4' defaultChecked={characterAllowed} onChange={(prev) => {
+          <label>Number</label>
+          <input type="checkbox" className='' defaultChecked={characterAllowed} onChange={(prev) => {
             setCharacterAllowed((prev) => !prev)
           }} />
-          <label className='text-white ml-2'>Character</label>
+          <label>Character</label>
         </div>
       </div>
     </div>
-    </>
   )
 }
 
